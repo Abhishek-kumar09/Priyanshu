@@ -125,3 +125,4 @@ def display1()
     sql="select * from passenger"
     cursor.execute.fetchall()
     results=cursor.fetchall()
+    # change 1
