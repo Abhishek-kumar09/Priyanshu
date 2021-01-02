@@ -85,7 +85,6 @@ if user == "root" and passwords == '2002':
                     ch = input("____")
                     if ch == 'yes' or ch == 'Yes' or ch == 'YES':
                         insert1()
-                        choice1()
                     else:
                         choice1()
                 elif x == 'c' or x == 'C':
@@ -205,14 +204,14 @@ if user == "root" and passwords == '2002':
                 print("👉🏻F. BACK.")
 
                 z = input("\n📌Enter your choice:-")
-                if z == 'A' or z == 'a':
-                    view3()
-                    print("More Station's Data")
-                    ch = input("yes or no..")
-                    if ch == 'yes' or ch == 'YES' or ch == 'Yes':
-                        view3()
-                    elif ch == 'no' or ch == 'NO':
-                        choice3()
+                # if z == 'A' or 'a':
+                #     view3()
+                #     print("More Station's Data")
+                #     ch = input("yes or no..")
+                #     if ch == 'yes' or ch == 'YES' or ch == 'Yes':
+                #         view3()
+                #     elif ch == 'no' or ch == 'NO':
+                #         choice3()
                 if z == 'B' or z == 'b':
                     print("Please Provide All The Information.")
                     insert3()
@@ -364,9 +363,9 @@ if user == "root" and passwords == '2002':
 # ..........................................................................................................................................................
 
         def insert1():
-            p_name = input("▪️Enter passenger's name       :-")
+            p_name = input("Enter passenger's name:-")
             p_name = p_name.upper()
-            p_age = int(input("▪️Enter passenger's age        :-"))
+            p_age = int(input("Enter passenger's age:-"))
             empty = []
             while True:
                 pnr = randrange(9000000000, 9999999999)
@@ -376,11 +375,11 @@ if user == "root" and passwords == '2002':
                     pass
                 if len(empty) == 1000:
                     break
-            frm = input("▪️Enter Boarding Station       :-")
+            frm = input("Enter boarding station:-")
             frm = frm.upper()
-            too = input("▪️Enter De Boarding Station    :-")
+            too = input("Enter de boarding station:-:")
             too = too.upper()
-            phn = input("▪️Enter Mobile.no              :-")
+            phn = input("Enter mobile.no:-")
             if len(phn) == 10:
                 phn = '+91_' + phn[0:4] + '_' + phn[4:6] + '_' + phn[6:10]
             elif len(phn) < 10:
@@ -392,15 +391,15 @@ if user == "root" and passwords == '2002':
                 print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t!!ERROR!!\nPhone Number Too Long.")
                 print("Re Enter All the Data AGAIN")
                 insert1()
-            train = input("▪️Enter Train                  :-")
+            train = input("Enter Train.:-")
             train = train.upper()
-            date = int(input("▪️Enter year of Journey        :-"))
-            month = int(input("▪️Enter Month of Journey       :-"))
-            day = int(input("▪️Enter Day of Journey          :-"))
+            date = int(input("Enter year"))
+            month = int(input("Enter Month:-"))
+            day = int(input("Enter Day:-"))
             now = datetime.datetime(date, month, day)
-            sql = "insert into PASSENGER( p_name,p_age,pnr,frm,too,phn,train,dte)  " \
+            sql = "insert into Passenger( p_name, p_age, pnr, frm, too, phn, train,dte)  " \
                   "values('%s','%d','%s','%s','%s','%s','%s','%s')" % \
-                  (p_name,p_age,pnr,frm,too,phn,train,now)
+                  (p_name, p_age, pnr, frm, too, phn, train, now)
             try:
                 cursor.execute(sql)
                 db.commit()
@@ -411,7 +410,7 @@ if user == "root" and passwords == '2002':
 # ..........................................................................................................................................................
 
         def insert2():
-            emp_name = input("▪️Enter Employee's Name\t\t\t:-")
+            emp_name = input("Enter Employee's Name\t\t\t:-")
             emp_name=emp_name.upper()
             empty = []
             while True:
@@ -422,11 +421,11 @@ if user == "root" and passwords == '2002':
                     pass
                 if len(empty) == 1000:
                     break
-            emp_age = int(input("▪️Enter Employee's Age\t\t\t:-"))
-            emp_salry = int(input("▪️Enter Employee's Salary\t\t\t:-"))
-            emp_dept = input("▪️Enter Employee's Department\t\t:-")
+            emp_age = int(input("Enter Employee's Age\t\t\t:-"))
+            emp_salry = int(input("Enter Employee's Salary\t\t\t:-"))
+            emp_dept = input("Enter Employee's Department\t\t:-")
             emp_dept=emp_dept.upper()
-            emp_phn = input("▪️Enter Employee's Mobile Number\t:-")
+            emp_phn = input("Enter Employee's Mobile Number\t:-")
             if len(emp_phn) == 10:
                 emp_phn = '+91_'+ emp_phn[0:4]+'_' + emp_phn[4:6] +'_'+ emp_phn[6:10]
             elif len(emp_phn) < 10:
@@ -445,13 +444,13 @@ if user == "root" and passwords == '2002':
 # ..........................................................................................................................................................
 
         def insert3():
-            s_name = input("▪️Enter Station Name\t\t\t\t\t\t:-")
+            s_name = input("Enter Station Name:-")
             s_name=s_name.upper()
-            notrain = int(input("▪️Enter Number of Trains to the Station\t:-"))
-            nopltfrm = int(input("▪️Enter number of Platforms\t\t\t\t:-"))
-            no_employees = int(input("▪️Enter Number. of Employees\t\t\t\t:-"))
-            no_counter = int(input("▪️Enter Number of Counters to the Station\t:-"))
-            station_code = input("▪️Enter Station code\t\t\t\t\t\t:-")
+            notrain = int(input("Enter Number of Trains to the Station:-"))
+            nopltfrm = int(input("Enter number of Platforms:-:"))
+            no_employees = int(input("Enter Number. of Employees:-"))
+            no_counter = int(input("Enter Number of Counters to the Station:-"))
+            station_code = input("Enter code:-")
             station_code=station_code.upper()
             sql = "insert into Station(s_name, notrain, nopltfrm, no_employees, no_counter, station_code)  " \
                   "values('%s','%d','%d','%d','%d','%s')" \
@@ -465,17 +464,17 @@ if user == "root" and passwords == '2002':
 # ..........................................................................................................................................................
 
         def insert4():
-            t_name = input("▪️Enter Train name\t\t\t\t:-")
+            t_name = input("Enter Train name:-")
             t_name=t_name.upper()
-            t_no = int(input("▪️Enter Train number\t\t\t\t:-"))
-            frm = input("▪️Enter Starting Station \t\t\t:-")
+            t_no = int(input("Enter Train number:-"))
+            frm = input("Enter from:-")
             frm=frm.upper()
-            too = input("▪️Enter Final Station \t\t\t:-")
+            too = input("Enter  to:-")
             too=too.upper()
-            noboggy = int(input("▪️Enter Number of Coaches of Train:-"))
-            type = input("▪️Enter Train Type\t\t\t\t:-")
+            noboggy = int(input("Enter noboggy:-:"))
+            type = input("Enter type:-")
             type=type.upper()
-            speed = int(input("▪️Enter speed(avg) of Train \t\t:-"))
+            speed = int(input("Enter speed:-"))
             sql = "insert into Train(t_name,t_no,frm,too,noboggy,type,speed)  values('%s','%d','%s','%s','%d','%s','%d')" \
                   % (t_name, t_no, frm, too, noboggy, type, speed)
             try:
@@ -490,10 +489,13 @@ if user == "root" and passwords == '2002':
 
 
         def view1():
-            sql1="select pnr from PASSENGER"
+            sql1="select pnr from Passenger"
             cursor.execute(sql1)
+            res=cursor.fetchall()
+            for d in res:
+                print(d, end='')
             temps = input("\nEnter PNR Number Of The Passenger Which Is To Be Shown. ")
-            sql = "select * from PASSENGER where pnr='%s'" % temps
+            sql = "select * from Passenger where pnr='%s'" % temps
             cursor.execute(sql)
             results = cursor.fetchall()
             print("_______________________________________________________________________________________________________________________________________")
@@ -529,10 +531,10 @@ if user == "root" and passwords == '2002':
                 emp_salry = c[4]
                 emp_dept = c[5]
                 emp_phn = c[6]
-                print("\nS.no\t\t\t\t\t : %d\nEmployee's Name\t\t\t : %s\nEmployee's ID\t\t\t : %d"
-                      "\nEmployee's Age\t\t\t : %d\nEmployee's Salary\t\t : %d\nEmployee's Department\t : %s\n"
-                      "Employee's Phone Number  : %s\n________________________________________________________________"
-                      "____________________________________________________________________________________________" %
+                print("\n____________________________________"
+                      "\nS.no : %d\nEmployee's Name : %s\nEmployee's ID : %d\nEmployee's Age : %d"
+                      "\nEmployee's Salary : %d\nEmployee's Department : %s\nEmployee's Phone Number : %s"
+                      "\n_____________________________________" %
                       (s_no, emp_name, emp_id, emp_age, emp_salry, emp_dept, emp_phn))
 
 # ___________________________________________________________________________________________________________________________________________________________
@@ -550,12 +552,11 @@ if user == "root" and passwords == '2002':
                 no_employees = c[4]
                 no_counter = c[5]
                 station_code = c[6]
-                print(
-                      "\nS.no\t\t\t\t\t\t\t\t\t : %d\nStation Name\t\t\t\t\t\t\t : %s\nNumber of Trains to the Station\t\t\t : %d"
-                      "\nNumber of Platforms of the Station\t\t : %d\nNumber of Employees of the Station\t\t : %d"
-                      "\nNumber of Counters of the Station\t\t : %d\nStation Code\t\t\t\t\t\t\t : %s"
-                      "\n________________________________________________________________"
-                      "____________________________________________________________________________________________" %
+                print("\n____________________________________"
+                      "\nS.no : %d\nStation Name : %s\nNumber of Trains to the Station : %d"
+                      "\nNumber of Platforms of the Station : %d\nNumber of Employees of the Station : %d"
+                      "\nNumber of Counters of the Station : %d\nStation Code : %s"
+                      "\n_____________________________________" %
                       (s_no, s_name, notrain, nopltfrm, no_employees, no_counter, station_code))
 
 # ___________________________________________________________________________________________________________________________________________________________
@@ -575,19 +576,19 @@ if user == "root" and passwords == '2002':
                 type = c[6]
                 speed = c[7]
 
-                print("s.no\t\t\t\t : %d\nTrain Name\t\t\t : %s\nTrain Number\t\t : %d\nStarting station\t : %s"
-                      "\nFinal station\t\t : %s\nNo. of Boggies\t\t : %d"
-                      "\nTrain Type\t\t\t : %s\nSpeed of Train\t\t : %d km/h\n____________________________________"
-                      "____________________________"
-                      "____________________________________________________________________________________________" %
-                      (s_no, t_name, t_no, frm, too, noboggy, type, speed))
+                print(
+                    "\n____________________________________"
+                    "S.no : %d\nTrain Name : %s\nTrain Number : %d\nFrom : %s\nTo : %s\nNumber of Boggies : %d"
+                    "\nTrain Type : %s\nSpeed : %d\n_____________________________________" %
+                    (s_no, t_name, t_no, frm, too, noboggy, type, speed)
+                )
 
 # ___________________________________________________________________________________________________________________________________________________________
 # ___________________________________________________________________________________________________________________________________________________________
 
         def display1():
             try:
-                sql = "select * from PASSENGER "
+                sql = "select * from Passenger order by s_no"
                 cursor.execute(sql)
                 results = cursor.fetchall()
                 for c in results:
@@ -608,7 +609,7 @@ if user == "root" and passwords == '2002':
                           "___________________________________________________________________________" %
                           (s_no, p_name, p_age, pnr, frm, too, phn, train, dte))
             except:
-                print("ERROR!!! Unable to Fetch Data..")
+                print("ERROR!! Unable to Fetch Data..")
                 db.close()
 
 # ..........................................................................................................................................................
@@ -628,13 +629,12 @@ if user == "root" and passwords == '2002':
                     emp_phn = c[6]
 
                     print(
-                        "\nS.no\t\t\t\t\t : %d\nEmployee's Name\t\t\t : %s\nEmployee's ID\t\t\t : %d\nEmployee's Age\t\t\t : %d\n"
-                        "Employee's Salary\t\t : %d\nEmployee's Department\t : %s\n"
-                        "Employee's Phone Number  : %s\n________________________________________________________________"
-                        "____________________________________________________________________________________________" %
+                        "\nS.no : %d\nEmployee's Name : %s\nEmployee's ID : %d\nEmployee's Age : %d\n"
+                        "Employee's Salary : %d\nEmployee's Department : %s\n"
+                        "Employee's Phone Number : %s\n_____________________________________" %
                         (s_no, emp_name, emp_id, emp_age, emp_salry, emp_dept, emp_phn))
             except:
-                print("ERROR!! Unable to Fetch dData...")
+                print("ERROR!! Unable to Fetch dData..")
                 db.close()
 
 # ..........................................................................................................................................................
@@ -652,13 +652,11 @@ if user == "root" and passwords == '2002':
                     no_employees = c[4]
                     no_counter = c[5]
                     station_code = c[6]
-                    print(
-                      "\nS.no\t\t\t\t\t\t\t\t\t : %d\nStation Name\t\t\t\t\t\t\t : %s\nNumber of Trains to the Station\t\t\t : %d"
-                      "\nNumber of Platforms of the Station\t\t : %d\nNumber of Employees of the Station\t\t : %d"
-                      "\nNumber of Counters of the Station\t\t : %d\nStation Code\t\t\t\t\t\t\t : %s"
-                      "\n________________________________________________________________"
-                      "____________________________________________________________________________________________" %
-                      (s_no, s_name, notrain, nopltfrm, no_employees, no_counter, station_code))
+                    print("s.no : %d\nStation's Name : %s\nNo. of Trains in the station : %d\n"
+                          "No. of Platform in the station : %d\nNumber of Employees in the Station : %d"
+                          "\nNo. of Ticket Counters in the Station : %d\n station code : %s"
+                          "\n_____________________________________" %
+                          (s_no, s_name, notrain, nopltfrm, no_employees, no_counter, station_code))
             except:
                 print("ERROR!! Unable to Fetch Data..")
                 db.close()
@@ -679,11 +677,8 @@ if user == "root" and passwords == '2002':
                     noboggy = c[5]
                     type = c[6]
                     speed = c[7]
-                    print("s.no\t\t\t\t : %d\nTrain Name\t\t\t : %s\nTrain Number\t\t : %d\nStarting station\t : %s"
-                          "\nFinal station\t\t : %s\nNo. of Boggies\t\t : %d"
-                          "\nTrain Type\t\t\t : %s\nSpeed of Train\t\t : %d km/h\n____________________________________"
-                          "____________________________"
-                          "____________________________________________________________________________________________" %
+                    print("s.no : %d\nTrain Name : %s\nTrain Number : %d\nFrom : %s\nTo : %s\nNo. of Boggy : %d"
+                          "\nType : %s\nSpeed : %d km/h\n_____________________________________" %
                           (s_no, t_name, t_no, frm, too, noboggy, type, speed))
             except:
                 print("ERROR!! Unable to Fetch Data..")
@@ -693,10 +688,10 @@ if user == "root" and passwords == '2002':
 # ..........................................................................................................................................................
 
         def update1():
-            tempst = input("▪️Enter PNR Number Associated with Passenger:-")
+            tempst = input("Enter PNR Number Associated with Passenger:-")
 
             def modified1():
-                sql = "select * from PASSENGER where pnr='%s'" % tempst
+                sql = "select * from Passenger where pnr='%s'" % tempst
                 cursor.execute(sql)
                 results = cursor.fetchall()
                 for c in results:
@@ -732,43 +727,43 @@ if user == "root" and passwords == '2002':
 
                 choice2 = int(input("Enter Desired Section :-"))
                 if choice2 == 1:
-                    sub2 = int(input("▪️Enter New Serial Number:-"))
-                    sql1 = "update PASSENGER set s_no='%d' where pnr ='%s'" % (sub2, tempst)
+                    sub2 = int(input("Enter New Serial Number:-"))
+                    sql1 = "update Passenger set s_no='%d' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 2:
-                    sub2 = input("▪ Enter New Passenger's Name:-")
-                    sql1 = "update PASSENGER set p_name='%s' where pnr ='%s'" % (sub2, tempst)
+                    sub2 = input("Enter New Passenger's Name:-")
+                    sql1 = "update Passenger set p_name='%s' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 3:
-                    sub2 = int(input("▪ Enter New Passenger's Age:-"))
-                    sql1 = "update PASSENGER set p_age='%d' where pnr ='%s'" % (sub2, tempst)
+                    sub2 = int(input("Enter New Passenger's Age:-"))
+                    sql1 = "update Passenger set p_age='%d' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 4:
-                    sub2 = input("▪ Enter New PNR Number:-")
-                    sql1 = "update PASSENGER set pnr='%s' where pnr ='%s'" % (sub2, tempst)
+                    sub2 = input("Enter New PNR Number:-")
+                    sql1 = "update Passenger set pnr='%s' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 5:
-                    sub2 = input("▪ Enter New Boarding's Station:-")
-                    sql1 = "update PASSENGER set frm='%s' where pnr ='%s'" % (sub2, tempst)
+                    sub2 = input("Enter New Boarding's Station:-")
+                    sql1 = "update Passenger set frm='%s' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 6:
-                    sub2 = input("▪ Enter New De Boarding Station:-")
+                    sub2 = input("Enter New De Boarding Station:-")
                     sql1 = "update Passenger set too='%s' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 7:
-                    sub2 = input("▪ Enter New Passenger's Phone Number:-")
-                    sql1 = "update PASSENGER set phn='%s' where pnr ='%s'" % (sub2, tempst)
+                    sub2 = input("Enter New Passenger's Phone Number:-")
+                    sql1 = "update Passenger set phn='%s' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 8:
-                    sub2 = input("▪ Enter New Passenger's Train:-")
-                    sql1 = "update PASSENGER set train='%s' where pnr ='%s'" % (sub2, tempst)
+                    sub2 = input("Enter New Passenger's Train:-")
+                    sql1 = "update Passenger set train='%s' where pnr ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.close()
                 elif choice2 == 9:
@@ -809,12 +804,11 @@ if user == "root" and passwords == '2002':
                     emp_salry = c[4]
                     emp_dept = c[5]
                     emp_phn = c[6]
-                    print(
-                        "\nS.no\t\t\t\t\t : %d\nEmployee's Name\t\t\t : %s\nEmployee's ID\t\t\t : %d\nEmployee's Age\t\t\t : %d\n"
-                        "Employee's Salary\t\t : %d\nEmployee's Department\t : %s\n"
-                        "Employee's Phone Number  : %s\n________________________________________________________________"
-                        "____________________________________________________________________________________________" %
-                        (s_no, emp_name, emp_id, emp_age, emp_salry, emp_dept, emp_phn))
+                    print("\n____________________________________"
+                          "\nS.no : %d\nEmployee's Name : %s\nEmployee's ID : %d\nEmployee's Age : %d"
+                          "\nEmployee's Salary : %d\nEmployee's Department : %s\nEmployee's Phone Number : %s"
+                          "\n_____________________________________" %
+                          (s_no, emp_name, emp_id, emp_age, emp_salry, emp_dept, emp_phn))
 
             modified2()
 
@@ -831,37 +825,37 @@ if user == "root" and passwords == '2002':
 
                 choice2 = int(input("Enter Desired Section:-"))
                 if choice2 == 1:
-                    sub2 = int(input("▪ Enter New Serial Number:-"))
+                    sub2 = int(input("Enter New Serial Number:-"))
                     sql1 = "update Employee set s_no='%d' where emp_id ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 2:
-                    sub2 = input("▪ Enter New Employee's Name:-")
+                    sub2 = input("Enter New Employee's Name:-")
                     sql1 = "update Employee set emp_name='%s' where emp_id ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 3:
-                    sub2 = int(input("▪ Enter New Employee's ID:-"))
+                    sub2 = int(input("Enter New Employee's ID:-"))
                     sql1 = "update Employee set emp_id='%d' where emp_id ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 4:
-                    sub2 = int(input("▪ Enter New Employee's Age:-"))
+                    sub2 = int(input("Enter New Employee's Age:-"))
                     sql1 = "update Employee set emp_age='%d' where emp_id ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 5:
-                    sub2 = int(input("▪ Enter New Employee's Salary:-"))
+                    sub2 = int(input("Enter New Employee's Salary:-"))
                     sql1 = "update Employee set emp_salry='%d' where emp_id ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 6:
-                    sub2 = input("▪ Enter New Employee's Department:-")
+                    sub2 = input("Enter New Employee's Department:-")
                     sql1 = "update Employee set emp_dept='%s' where emp_id ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 7:
-                    sub2 = input("▪ Enter New Employee's Phone Number:-")
+                    sub2 = input("Enter New Employee's Phone Number:-")
                     sql1 = "update Employee set emp_phn='%s' where emp_id ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
@@ -904,13 +898,13 @@ if user == "root" and passwords == '2002':
                     no_employees = c[4]
                     no_counter = c[5]
                     station_code = c[6]
-                    print(
-                      "\nS.no\t\t\t\t\t\t\t\t\t : %d\nStation Name\t\t\t\t\t\t\t : %s\nNumber of Trains to the Station\t\t\t : %d"
-                      "\nNumber of Platforms of the Station\t\t : %d\nNumber of Employees of the Station\t\t : %d"
-                      "\nNumber of Counters of the Station\t\t : %d\nStation Code\t\t\t\t\t\t\t : %s"
-                      "\n________________________________________________________________"
-                      "____________________________________________________________________________________________" %
-                      (s_no, s_name, notrain, nopltfrm, no_employees, no_counter, station_code))
+                    print("\n____________________________________"
+                          "\nS.no : %d\nStation Name : %s\nNumber of Trains to the Station : %d"
+                          "\nNumber of Platforms of the Station : %d\nNumber of Employees of the Station : %d"
+                          "\nNumber of Counters of the Station : %d\nStation Code : %s"
+                          "\n_____________________________________" %
+                          (s_no, s_name, notrain, nopltfrm, no_employees, no_counter, station_code))
+
             modified()
 
             try:
@@ -926,37 +920,37 @@ if user == "root" and passwords == '2002':
 
                 choice2 = int(input("Enter Desired Section:-"))
                 if choice2 == 1:
-                    sub2 = int(input("▪ Enter New Serial Number:-"))
+                    sub2 = int(input("Enter New Serial Number:-"))
                     sql1 = "update Station set s_no='%d' where station_code ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 2:
-                    sub2 = input("▪ Enter New Station Name:-")
+                    sub2 = input("Enter New Station Name:-")
                     sql1 = "update Station set s_name='%s' where station_code ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 3:
-                    sub2 = int(input("▪ Enter New No. of Trains of the Station:-"))
+                    sub2 = int(input("Enter New No. of Trains of the Station:-"))
                     sql1 = "update Station set notrain='%d' where station_code ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 4:
-                    sub2 = int(input("▪ Enter New No. of Platforms of the Station:-"))
+                    sub2 = int(input("Enter New No. of Platforms of the Station:-"))
                     sql1 = "update Station set nopltfrm='%d' where station_code ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 5:
-                    sub2 = int(input("▪ Enter New No. of Employees of the Station:-"))
+                    sub2 = int(input("Enter New No. of Employees of the Station:-"))
                     sql1 = "update Station set no_employees='%d' where station_code ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 6:
-                    sub2 = int(input("▪ Enter New No. of Counters of the Station:-"))
+                    sub2 = int(input("Enter New No. of Counters of the Station:-"))
                     sql1 = "update Station set no_counter='%s' where station_code ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 7:
-                    sub2 = input("▪ Enter New Station Code:-")
+                    sub2 = input("Enter New Station Code:-")
                     sql1 = "update Station set station_code ='%s' where station_code ='%s'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
@@ -1001,12 +995,12 @@ if user == "root" and passwords == '2002':
                     type = c[6]
                     speed = c[7]
 
-                    print("s.no\t\t\t\t : %d\nTrain Name\t\t\t : %s\nTrain Number\t\t : %d\nStarting station\t : %s"
-                          "\nFinal station\t\t : %s\nNo. of Boggies\t\t : %d"
-                          "\nTrain Type\t\t\t : %s\nSpeed of Train\t\t : %d km/h\n____________________________________"
-                          "____________________________"
-                          "____________________________________________________________________________________________" %
-                          (s_no, t_name, t_no, frm, too, noboggy, type, speed))
+                    print(
+                        "\n____________________________________"
+                        "S.no : %d\nTrain Name : %s\nTrain Number : %d\nFrom : %s\nTo : %s\nNumber of Boggies : %d"
+                        "\nTrain Type : %s\nSpeed : %d\n_____________________________________" %
+                        (s_no, t_name, t_no, frm, too, noboggy, type, speed)
+                    )
 
             modified()
 
@@ -1024,42 +1018,42 @@ if user == "root" and passwords == '2002':
 
                 choice2 = int(input("Enter Desired Section:-"))
                 if choice2 == 1:
-                    sub2 = int(input("▪ Enter New Serial Number:-"))
+                    sub2 = int(input("Enter New Serial Number:-"))
                     sql1 = "update Train set s_no='%d' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 2:
-                    sub2 = input("▪ Enter New Train Name:-")
+                    sub2 = input("Enter New Train Name:-")
                     sql1 = "update Train set t_name='%s' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 3:
-                    sub2 = int(input("▪ Enter New Train Number:-"))
+                    sub2 = int(input("Enter New Train Number:-"))
                     sql1 = "update Train set t_no='%d' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 4:
-                    sub2 = input("▪ Enter New Train's starting Station:-")
+                    sub2 = input("Enter New Train's starting Station:-")
                     sql1 = "update Train set frm='%s' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 5:
-                    sub2 = input("▪ Enter New Train's final Station:-")
+                    sub2 = input("Enter New Train's final Station:-")
                     sql1 = "update Train set too='%s' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 6:
-                    sub2 = int(input("▪ Enter Updated no.of Boggies of the Train:-"))
+                    sub2 = int(input("Enter Updated no.of Boggies of the Train:-"))
                     sql1 = "update Train set noboggy='%d' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 7:
-                    sub2 = input("▪ Enter New Train Type:-")
+                    sub2 = input("Enter New Train Type:-")
                     sql1 = "update Train set type='%s' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.commit()
                 elif choice2 == 8:
-                    sub2 = int(input("▪ Enter New Train's Speed:-"))
+                    sub2 = int(input("Enter New Train's Speed:-"))
                     sql1 = "update Train set speed='%d' where t_no ='%d'" % (sub2, tempst)
                     cursor.execute(sql1)
                     db.close()
@@ -1091,7 +1085,7 @@ if user == "root" and passwords == '2002':
             tempst = input("Enter Passenger's PNR Number Which is to be Deleted")
 
             def modified1():
-                sql1 = "select * from PASSENGER where pnr='%s'" % tempst
+                sql1 = "select * from Passenger where pnr='%s'" % tempst
                 cursor.execute(sql1)
                 results = cursor.fetchall()
                 for c in results:
@@ -1104,18 +1098,16 @@ if user == "root" and passwords == '2002':
                     phn = c[6]
                     train = c[7]
 
-                    print("S.no\t\t\t\t : %d\nPassenger's Name\t : %s\nPassenger's Age \t : %d"
-                          "\nPNR\t\t\t\t\t : %s\nFrom\t\t\t\t : %s\nTo\t\t\t\t\t : %s"
-                          "\nMobile No.\t\t\t : %s\nTrain\t\t\t\t : %s"
-                          "\n_________________________________________________________________________________"
-                          "___________________________________________________________________________" %
+                    print("\n____________________________________"
+                          "s.no : %d\nPassenger's Name : %s\nPassenger's Age : %d\nPNR : %s\nFrom : %s\nTo : %s"
+                          "\nMobile No. : %s\nTrain : %s\n_____________________________________" %
                           (s_no, p_name, p_age, pnr, frm, too, phn, train))
                     return modified1()
 
             modified1()
 
             try:
-                sql = "delete from PASSENGER where pnr='%s'" % tempst
+                sql = "delete from Passenger where pnr='%s'" % tempst
                 ans = input("Are you sure want to delete the given entry(yes/no)")
                 if ans == 'yes' or ans == 'Yes':
                     cursor.execute(sql)
@@ -1141,12 +1133,11 @@ if user == "root" and passwords == '2002':
                     emp_salry = c[4]
                     emp_dept = c[5]
                     emp_phn = c[6]
-                    print(
-                        "\nS.no\t\t\t\t\t : %d\nEmployee's Name\t\t\t : %s\nEmployee's ID\t\t\t : %d\nEmployee's Age\t\t\t : %d\n"
-                        "Employee's Salary\t\t : %d\nEmployee's Department\t : %s\n"
-                        "Employee's Phone Number  : %s\n________________________________________________________________"
-                        "____________________________________________________________________________________________" %
-                        (s_no, emp_name, emp_id, emp_age, emp_salry, emp_dept, emp_phn))
+                    print("\n____________________________________"
+                          "\nS.no : %d\nEmployee's Name : %s\nEmployee's ID : %d\nEmployee's Age : %d"
+                          "\nEmployee's Salary : %d\nEmployee's Department : %s\nEmployee's Phone Number : %s"
+                          "\n_____________________________________" %
+                          (s_no, emp_name, emp_id, emp_age, emp_salry, emp_dept, emp_phn))
 
             modified2()
 
@@ -1177,13 +1168,12 @@ if user == "root" and passwords == '2002':
                     no_employees = c[4]
                     no_counter = c[5]
                     station_code = c[6]
-                    print(
-                      "\nS.no\t\t\t\t\t\t\t\t\t : %d\nStation Name\t\t\t\t\t\t\t : %s\nNumber of Trains to the Station\t\t\t : %d"
-                      "\nNumber of Platforms of the Station\t\t : %d\nNumber of Employees of the Station\t\t : %d"
-                      "\nNumber of Counters of the Station\t\t : %d\nStation Code\t\t\t\t\t\t\t : %s"
-                      "\n________________________________________________________________"
-                      "____________________________________________________________________________________________" %
-                      (s_no, s_name, notrain, nopltfrm, no_employees, no_counter, station_code))
+                    print("\n____________________________________"
+                          "\nS.no : %d\nStation Name : %s\nNumber of Trains to the Station : %d"
+                          "\nNumber of Platforms of the Station : %d\nNumber of Employees of the Station : %d"
+                          "\nNumber of Counters of the Station : %d\nStation Code : %s"
+                          "\n_____________________________________" %
+                          (s_no, s_name, notrain, nopltfrm, no_employees, no_counter, station_code))
 
             modified()
 
@@ -1216,12 +1206,13 @@ if user == "root" and passwords == '2002':
                     type = c[6]
                     speed = c[7]
 
-                    print("s.no\t\t\t\t : %d\nTrain Name\t\t\t : %s\nTrain Number\t\t : %d\nStarting station\t : %s"
-                          "\nFinal station\t\t : %s\nNo. of Boggies\t\t : %d"
-                          "\nTrain Type\t\t\t : %s\nSpeed of Train\t\t : %d km/h\n____________________________________"
-                          "____________________________"
-                          "____________________________________________________________________________________________" %
-                          (s_no, t_name, t_no, frm, too, noboggy, type, speed))
+                    print(
+                        "\n____________________________________"
+                        "S.no : %d\nTrain Name : %s\nTrain Number : %d\n"
+                        "From : %s\nTo : %s\nNumber of Boggies : %d"
+                        "\nTrain Type : %s\nSpeed : %d\n_____________________________________" %
+                        (s_no, t_name, t_no, frm, too, noboggy, type, speed)
+                    )
 
             modified()
 
